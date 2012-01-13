@@ -1,7 +1,7 @@
 <?php
 if (isset($_FILES["image"]) && is_uploaded_file($_FILES["image"]["tmp_name"])) {
   //@todo Change base_dir!
-  $base_dir = 'C:/wamp/www';
+  $base_dir = 'C:/wamp/www/kjps/www';
   //@todo Change image location and naming (if needed)
   $image = '/images/' . $_FILES["image"]["name"];
   move_uploaded_file($_FILES["image"]["tmp_name"], $base_dir . $image);
@@ -26,6 +26,6 @@ if (isset($_FILES["image"]) && is_uploaded_file($_FILES["image"]["tmp_name"])) {
 </script>
 <?php  } else {?>
 <form name="iform" action="" method="post" enctype="multipart/form-data">
-  <input id="file" type="file" name="image" onchange="this.parentElement.submit()" />
+  <input id="file" accept="image/*" type="file" name="image" onchange="this.parentElement.submit()" />
 </form>
 <?php }?>
